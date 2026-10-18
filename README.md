@@ -6,11 +6,15 @@ It bundles a cheat checker (`cheat_check.py`) that diffs a modified file against
 
 ## Install
 
-```sh
-# pnpm
-pnpm dlx skills add sevki/verus-skill
+### pnpm
 
-# npm
+```sh
+pnpm dlx skills add sevki/verus-skill
+```
+
+### npm
+
+```sh
 npx skills add sevki/verus-skill
 ```
 
