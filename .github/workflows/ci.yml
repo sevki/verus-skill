@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate SKILL.md frontmatter
+        run: python -I tests/validate_skills.py
+      - name: Test cheat checker
+        run: python -I -m unittest discover -s tests -v
+
+  install:
+    name: Install with skills CLI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: List skills discoverable by the CLI
+        run: pnpm dlx skills add . --list
+      - name: Install into a scratch project
+        run: |
+          mkdir "$RUNNER_TEMP/proj" && cd "$RUNNER_TEMP/proj"
+          pnpm dlx skills add "$GITHUB_WORKSPACE" --skill verus-proof-llm --agent claude-code --copy -y
+          test -f .claude/skills/verus-proof-llm/SKILL.md
+          test -f .claude/skills/verus-proof-llm/scripts/cheat_check.py
