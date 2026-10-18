@@ -7,8 +7,14 @@ It bundles a cheat checker (`cheat_check.py`) that diffs a modified file against
 ## Install
 
 ```sh
+# pnpm
+pnpm dlx skills add sevki/verus-skill
+
+# npm
 npx skills add sevki/verus-skill
 ```
+
+Add `-g` to install globally instead of into the current project, or `--agent claude-code` to target one agent.
 
 ## Development
 

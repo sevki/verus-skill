@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-SCRIPT = Path(__file__).parent.parent / "skills" / "verus-proof-llm" / "scripts" / "cheat_check.py"
+SCRIPT = Path(__file__).parent.parent / "skills" / "verus-proof" / "scripts" / "cheat_check.py"
 ORIG = "fn f(x: u32) -> u32\n    requires x < 10,\n{ x }\n"
 
 

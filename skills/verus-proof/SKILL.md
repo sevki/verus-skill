@@ -1,5 +1,5 @@
 ---
-name: verus-proof-llm
+name: verus-proof
 description: Workflow and guardrails for using an LLM coding agent to write or repair Verus proofs (Rust verification). Make sure to use this skill whenever the user mentions Verus, vstd, proof annotations, proof fns/lemmas, requires/ensures, assert-by, "verus file.rs", rlimit, or asks to make a .rs file verify, fix Verus errors, fill in a proof skeleton, or clean up an existing Verus proof, even if they don't say "skill" or "LLM".
 ---
 

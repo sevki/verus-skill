@@ -34,6 +34,6 @@ jobs:
       - name: Install into a scratch project
         run: |
           mkdir "$RUNNER_TEMP/proj" && cd "$RUNNER_TEMP/proj"
-          pnpm dlx skills add "$GITHUB_WORKSPACE" --skill verus-proof-llm --agent claude-code --copy -y
-          test -f .claude/skills/verus-proof-llm/SKILL.md
-          test -f .claude/skills/verus-proof-llm/scripts/cheat_check.py
+          pnpm dlx skills add "$GITHUB_WORKSPACE" --skill verus-proof --agent claude-code --copy -y
+          test -f .claude/skills/verus-proof/SKILL.md
+          test -f .claude/skills/verus-proof/scripts/cheat_check.py
